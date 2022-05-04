@@ -18,10 +18,8 @@ defmodule BlogWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    get "/numbers/:number", NumberController, :show
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", BlogWeb do
-  #   pipe_through :api
-  # end
 end
