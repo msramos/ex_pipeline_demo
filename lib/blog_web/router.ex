@@ -21,5 +21,4 @@ defmodule BlogWeb.Router do
 
     get "/numbers/:number", NumberController, :show
   end
-
 end

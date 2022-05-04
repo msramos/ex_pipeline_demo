@@ -5,9 +5,9 @@ defmodule Blog.Pipeline.ParseNumber do
   alias Pipeline.State
 
   pipeline :echo do
-    init :build_state
-    step :echo
-    then :log
+    init(:build_state)
+    step(:echo)
+    then(:log)
   end
 
   def build_state(value), do: State.new(:echo, value)
@@ -31,6 +31,6 @@ defmodule Blog.Pipeline.ParseNumber do
 
       %State{value: value} ->
         Logger.warn("invalid echo: #{inspect(value)}")
-      end
+    end
   end
 end
