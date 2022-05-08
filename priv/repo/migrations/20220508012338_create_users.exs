@@ -8,6 +8,6 @@ defmodule Blog.Repo.Migrations.CreateUsers do
       timestamps()
     end
 
-    unique_index("users", [:email])
+    create unique_index("users", [:email])
   end
 end
