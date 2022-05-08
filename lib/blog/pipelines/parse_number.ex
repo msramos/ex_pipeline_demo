@@ -4,17 +4,17 @@ defmodule Blog.Pipeline.ParseNumber do
 
   alias Pipeline.State
 
-  pipeline :echo do
+  pipeline :parse_number do
     init(:build_state)
-    step(:echo)
+    step(:parse)
     then(:log)
   end
 
-  def build_state(value), do: State.new(:echo, value)
+  def build_state(value), do: State.new(:parse_number, value)
 
-  def echo(nil, _), do: {:error, "Nil number"}
+  def parse_number(nil, _), do: {:error, "Nil number"}
 
-  def echo(value, _) do
+  def parse_number(value, _) do
     case Integer.parse(value) do
       {number, ""} ->
         {:ok, number}
@@ -27,10 +27,10 @@ defmodule Blog.Pipeline.ParseNumber do
   def log(state, _) do
     case state do
       %State{value: value, valid?: true} ->
-        Logger.info("valid echo: #{value}")
+        Logger.info("Processed a valid number: #{value}")
 
       %State{value: value} ->
-        Logger.warn("invalid echo: #{inspect(value)}")
+        Logger.warn("Invalid number detected: #{inspect(value)}")
     end
   end
 end
