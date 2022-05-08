@@ -20,5 +20,7 @@ defmodule BlogWeb.Router do
     get "/", PageController, :index
 
     get "/numbers/:number", NumberController, :show
+
+    resources "/sessions", SessionController, only: [:new, :create, :delete], singleton: true
   end
 end

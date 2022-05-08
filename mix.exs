@@ -46,7 +46,8 @@ defmodule Blog.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:ex_pipeline, github: "msramos/ex_pipeline"}
+      {:ex_pipeline, github: "msramos/ex_pipeline"},
+      {:argon2_elixir, "~> 3.0"}
     ]
   end
 

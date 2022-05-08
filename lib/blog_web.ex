@@ -93,6 +93,7 @@ defmodule BlogWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
+      import BlogWeb.Helpers
       import BlogWeb.ErrorHelpers
       alias BlogWeb.Router.Helpers, as: Routes
     end

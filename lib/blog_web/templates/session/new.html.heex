@@ -1,0 +1,9 @@
+<%= form_for @conn, Routes.session_path(@conn, :create), [name: :session], fn f -> %>
+    <%= label f, :email, "E-mail" %>
+    <%= email_input f, :email %>
+
+    <%= label f, :password, "Password" %>
+    <%= password_input f, :password %>
+
+    <%= submit "Sign me In" %>
+<% end %>
