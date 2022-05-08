@@ -16,7 +16,6 @@ defmodule Blog.Users do
     Repo.one(query)
   end
 
-  @spec authenticate(any(), any()) :: {:ok, struct()} | :error
   def authenticate(email, password) do
     email
     |> by_email()

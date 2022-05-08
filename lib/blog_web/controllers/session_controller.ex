@@ -21,7 +21,7 @@ defmodule BlogWeb.SessionController do
     end
   end
 
-  def delete(conn, params) do
+  def delete(conn, _params) do
     case Pipeline.execute(SignOut, conn) do
       {:ok, conn} ->
         conn

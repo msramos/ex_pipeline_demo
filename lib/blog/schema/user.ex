@@ -26,7 +26,6 @@ defmodule Blog.Schema.User do
 
   defp password_hash(changeset), do: changeset
 
-  @spec verify_password(any(), any()) :: boolean()
   def verify_password(user, password) do
     Argon2.check_pass(user, password)
   end
