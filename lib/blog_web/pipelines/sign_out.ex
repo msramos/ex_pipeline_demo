@@ -9,14 +9,10 @@ defmodule BlogWeb.Pipelines.SignOut do
   end
 
   def clear_session(conn, _) do
-    {:ok, Plug.Conn.delete_session(conn, :user)}
+    {:ok, Plug.Conn.clear_session(conn)}
   end
 
-  def report(%Pipeline.State{} = state, _options) do
-    if state.valid? do
-      Logger.info("New user sign-out detected!")
-    else
-      Logger.warn("Failed sign-out attempt!")
-    end
+  def report(_state, _options) do
+    Logger.info("New user sign-out detected!")
   end
 end
